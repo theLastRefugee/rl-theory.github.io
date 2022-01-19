@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0046)https://wensun.github.io/CS6789_fall_2021.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="./CS 6789 Foundations of RL_files/analytics.js"></script><script async="" src="./CS 6789 Foundations of RL_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-46766886-4');
+  </script>
+
+
+<script type="text/javascript">
+  function visibility_on(id) {
+       var e = document.getElementById(id+"_text");
+       if(e.style.display == 'none')
+           e.style.display = 'block';
+       var e = document.getElementById(id+"_img");
+       if(e.style.display == 'none')
+           e.style.display = 'block';
+  }
+  function visibility_off(id) {
+       var e = document.getElementById(id+"_text");
+       if(e.style.display == 'block')
+           e.style.display = 'none';
+       var e = document.getElementById(id+"_img");
+       if(e.style.display == 'block')
+           e.style.display = 'none';
+  }
+  function toggle_visibility(id) {
+      var e = document.getElementById(id+"_text");
+      if(e.style.display == 'inline')
+         e.style.display = 'block';
+      else
+         e.style.display = 'inline';
+      var e = document.getElementById(id+"_img");
+      if(e.style.display == 'inline')
+         e.style.display = 'block';
+      else
+         e.style.display = 'inline';
+  }
+  function toggle_vis(id) {
+      var e = document.getElementById(id);
+      if (e.style.display == 'none')
+          e.style.display = 'inline';
+      else
+          e.style.display = 'none';
+  }
+</script>
+
+
+  <meta name="viewport" content="width=800">
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+    
+    a {
+      color: #1772d0;
+      text-decoration: none;
+    }
+    
+    a:focus,
+    a:hover {
+      color: #f09228;
+      text-decoration: none;
+    }
+    
+    body,
+    td,
+    th,
+    tr,
+    p,
+    a {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px
+    }
+    
+    strong {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    
+    heading {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 22px;
+    }
+    
+    papertitle {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700
+    }
+    
+    name {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 32px;
+    }
+    
+    .one {
+      width: 160px;
+      height: 160px;
+      position: relative;
+    }
+    
+    .two {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    .fade {
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    span.highlight {
+      background-color: #ffffd0;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="https://wensun.github.io/images/seal_icon.png">
+  <title>RL Theory Reading Group (2022 Winter)</title>
+  
+  <link href="./CS 6789 Foundations of RL_files/css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1045.0" data-gr-ext-installed="">
+  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+    <tbody><tr>
+      <td>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="67%" valign="middle">
+              <p align="center">
+                <name>RL Theory Reading Group (2022 Winter)</name>
+              </p>
+
+              <br><strong>课程内容：</strong><a href="https://wensun.github.io/CS6789_fall_2021.html">CS6789: Foundations of Reinforcement Learning (Cornell)</a> （全英文） 
+              <br><strong>课程内容介绍：</strong>这是一门advanced的且<strong>theory-heavy</strong>的课程，学生在在开始本课程前，需要对于<strong>线性代数，概率论，优化，机器学习</strong>有较好的掌握。
+              <br><strong>开始时间：Jan, 2022</strong>
+            </td>
+          </tr>
+        </tbody></table>
+
+        
+
+    
+
+        
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Staff</heading>
+              </p>
+              <p>
+                <br><strong>组织者:</strong> <a href="https://yanjieze.com/">Yanjie Ze</a> (SJTU)
+                <br><strong>Email:</strong> zeyanjie@sjtu.edu.cn
+                <br><strong>Wechat ID:</strong> zeyanjie
+                
+              <br>
+              <p></p>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Meeting Information</heading>
+              </p>
+              <p>讨论小组将使用<strong>腾讯会议</strong>进行，发布在微信群里。</p>
+                <p>
+                If you are not enrolled/wait listed, but want to have access,  
+                please email zeyanjie@sjtu.edu.cn to ask for permission. We will make a decision based on the capacity of the class 
+                and your research background. 
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+       
+	<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+	  <tbody><tr>
+	    <td width="100%" valign="middle">
+	      <p align="center">
+	      <heading>Course Notes: RL Theory and Algorithms </heading>
+	      </p>
+              <p> 
+	      The course will be largely based of the working draft of
+	  the book "Reinforcement Learning Theory and
+	  Algorithms", available 
+	      <a href="https://rltheorybook.github.io/">here</a>.
+	  We will be updating these notes in <a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">AJKS</a>
+	  throughout the course of the term. If you find typos or errors, please let us
+	  know. We would appreciate it!
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+	
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Schedule (tentative)</heading>
+              </p>
+              
+              <table>
+		<tbody>
+                  <tr height="50" bgcolor="#F8F8FF">
+                    <td>Date</td>
+                    <td></td>
+                    <td> <strong>Lecture</strong></td>
+                    <td>Reading</td>
+                    <td>Slides/HW </td>
+                    <td>Lecturer</td>
+                    <td>Video</td>
+                  </tr>
+		  
+                  <tr height="50">
+                    <td>TBD</td>
+                    <td></td>
+                    <td> <strong>Fundamentals</strong>: Markov Decision Processes</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/basics_MDP.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/basics_MDP_annotated.pdf">Annotated slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw0.pdf">HW0</a></td>
+                    <td>TBD</td>
+                    <td>TBD</td>
+                  </tr>
+
+                  <tr height="50" bgcolor="#F8F8FF">
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Fundamentals</strong>: Policy Iteration and Value Iteration</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/VI_and_PI.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/VI_and_PI_annotated.pdf">Annotated slides</a></td>
+                    <td>TBD</td>
+                    <td>TBD</td>
+                  </tr>
+
+                  <tr height="50">     
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Fundamentals</strong>: Computational Complexity &amp; The LP-Formulation</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/comp_limits.pdf">Slides</a>, 
+                    <a href="https://wensun.github.io/CS6789_data_fall_2021/comp_limits_annotated.pdf">Annotated slides</a></td>
+                    <td>TBD</td>
+                    <td>TBD</td>
+                  </tr>
+
+
+                <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Fundamentals</strong>: Statistical Limits
+                    with a Generative Model </td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.2 </a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Sample_Complexity.pdf">Slides</a>,
+                    <a href="https://wensun.github.io/CS6789_data/Sample_Complexity_annotated.pdf">Annotated slides</a>,
+		    </td>
+        <td>TBD</td>
+        <td>TBD</td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Generalization in RL</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.5
+		      </a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_1.pdf">Slides_1</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2.pdf">Slides_2</a>, 
+			<a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_1_annotated.pdf">Annotated Slides_1</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_annotated.pdf">Annotated Slides_2</a>
+		    </td>
+                <td></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">  
+                    <td> TBD</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Lower Bounds
+                    (the Linear Q* Assumption) &amp; Bellman
+		    Completeness</td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.3
+		      </a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_continued.pdf">Slides_2_continued</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC.pdf">Slides_Bellman_complete</a>,
+		      <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_continued_annotated.pdf">Slides_2_continued_annotated</a>,
+          <a href="https://wensun.github.io/CS6789_data_fall_2021/hw1.pdf">HW1</a>
+		    </td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Linear Bellman Completion (Continue)</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.3
+            </a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC_continue.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC_continue_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Fitted Dynamic Programming</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.4</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/fitted_Q_iteration.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/fitted_Q_iteration_annoated.pdf">Annotated Slides</a></td>
+                  </tr>
+                  
+
+                  <tr height="50">
+                    <td> 09/23/21</td>
+                    <td></td>
+                  <td><strong>Exploration</strong>: Multi-armed Bandits / Linear Bandits</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.6</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/MAB.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/MAB_annoated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Linear Bandits</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.6</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linUCB.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linUCB_annotated.pdf">Annotated slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Efficient Exploration in Tabular MDPs</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.7</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/UCBVI.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/UCBVI_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Efficient Exploration in Linear MDPs</td>
+                <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.8</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Exploration</strong>: Linear MDP (continue)</td>
+                    <td>  </td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>No class </strong></td>
+                    <td>  </td>
+                <td></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Exploration</strong>: Learning in Large Scale MDPs (Bellman rank)</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.9</a> </td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_part_1.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_part_1_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Learning in Large Scale MDPs (Bellman rank Continued)</td>
+                    <td></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Policy Optimization</strong>: Policy Gradient and Convergence</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.11</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Policy_gradient.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Policy_gradient_annotated.pdf">Annotated Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw2.pdf">HW2</a></td>
+                  </tr>
+
+		  <tr bgcolor="#F8F8FF" height="50">
+		    <td>TBD</td>
+		    <td></td>
+		    <td><strong>Policy Optimization</strong>: Global
+		      Convergence  </td>
+               <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT1.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT1_annotated.pdf">Annotated Slides</a></td>
+		    </tr>
+		  
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td>TBD</td>
+                    <td></td>
+                    <td><strong>Policy Optimization</strong>: Natural Policy Gradient (NPG) and its Global Convergence</td>
+               <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                <tr height="50">
+                  <td>TBD</td>
+                  <td></td>
+                <td><strong>Policy Optimization</strong>: NPG and
+		  Function Approximation </td>
+		  <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		  <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT3.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT3_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+		<tr bgcolor="#F8F8FF" height="50">
+		  <td>TBD</td>
+		  <td></td>
+		  <td><strong>Policy Optimization</strong>: Function
+		  Approximation </td>
+		  <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.13</a></td>
+		  <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT4.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT4_annotated.pdf">Annotated Slides</a></td>
+		</tr>
+		
+		<tr height="50">
+		  <td>TBD</td>
+		  <td></td>
+		  <td><strong>Control</strong>: Linear Quadratic
+		    Regulators (LQRs) </td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.16</a></td>	
+		    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/LQR.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/LQR_annotated.pdf">Annotated Slides</a> </td>
+		  </tr>
+		  
+		  <!--		  
+		  <tr  bgcolor="#F8F8FF" height="50">
+		    <td> 11/9/21</td>
+		    <td></td>
+		    <td><strong>Control</strong>: SDP formulation, Gauss-Newton/Policy Iteration, and a convex parameterization (System Level Synthesis)</td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  -->
+		  
+		  <tr height="50">
+		    <td>TBD</td>
+		    <td></td>
+		    <td><strong>Control</strong>: Convex parameterization for linear systems and online control</td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.16
+                    </a></td><td><a href="https://wensun.github.io/CS6789_data_fall_2021/SLS_linear_system.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/SLS_linear_system_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Offline RL</strong>: Recent Advancements in Offline RL</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Offline%20rl_%20a%20min-max%20approach.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw3.pdf">HW3</a></td>
+                  </tr>
+                  
+                  <tr height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Imitation Learning</strong>: Behavior Cloning and Distribution Matching</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Imitation_Learning.pdf">Slides</a></td>
+                  </tr>
+
+
+                                    
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> TBD</td>
+                    <td></td>
+                <td><strong>Imitation Learning</strong>: Interactive Imitation Learning</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Interactive_IL.pdf">Slides</a></td>
+                  </tr>
+
+      
+            
+               </tbody>
+              </table>
+
+
+
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        
+
+
+     
+
+
+        
+        </td>
+    </tr>
+  </tbody></table>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

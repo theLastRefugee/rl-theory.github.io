@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0046)https://wensun.github.io/CS6789_fall_2021.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script type="text/javascript" async="" src="./CS 6789 Foundations of RL_files/analytics.js"></script><script async="" src="./CS 6789 Foundations of RL_files/js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-46766886-4');
+  </script>
+
+
+<script type="text/javascript">
+  function visibility_on(id) {
+       var e = document.getElementById(id+"_text");
+       if(e.style.display == 'none')
+           e.style.display = 'block';
+       var e = document.getElementById(id+"_img");
+       if(e.style.display == 'none')
+           e.style.display = 'block';
+  }
+  function visibility_off(id) {
+       var e = document.getElementById(id+"_text");
+       if(e.style.display == 'block')
+           e.style.display = 'none';
+       var e = document.getElementById(id+"_img");
+       if(e.style.display == 'block')
+           e.style.display = 'none';
+  }
+  function toggle_visibility(id) {
+      var e = document.getElementById(id+"_text");
+      if(e.style.display == 'inline')
+         e.style.display = 'block';
+      else
+         e.style.display = 'inline';
+      var e = document.getElementById(id+"_img");
+      if(e.style.display == 'inline')
+         e.style.display = 'block';
+      else
+         e.style.display = 'inline';
+  }
+  function toggle_vis(id) {
+      var e = document.getElementById(id);
+      if (e.style.display == 'none')
+          e.style.display = 'inline';
+      else
+          e.style.display = 'none';
+  }
+</script>
+
+
+  <meta name="viewport" content="width=800">
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+    
+    a {
+      color: #1772d0;
+      text-decoration: none;
+    }
+    
+    a:focus,
+    a:hover {
+      color: #f09228;
+      text-decoration: none;
+    }
+    
+    body,
+    td,
+    th,
+    tr,
+    p,
+    a {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px
+    }
+    
+    strong {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+    
+    heading {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 22px;
+    }
+    
+    papertitle {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 14px;
+      font-weight: 700
+    }
+    
+    name {
+      font-family: 'Lato', Verdana, Helvetica, sans-serif;
+      font-size: 32px;
+    }
+    
+    .one {
+      width: 160px;
+      height: 160px;
+      position: relative;
+    }
+    
+    .two {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    .fade {
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    
+    span.highlight {
+      background-color: #ffffd0;
+    }
+  </style>
+  <link rel="icon" type="image/png" href="https://wensun.github.io/images/seal_icon.png">
+  <title>CS 6789 Foundations of RL</title>
+  
+  <link href="./CS 6789 Foundations of RL_files/css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1045.0" data-gr-ext-installed="">
+  <table width="800" border="0" align="center" cellspacing="0" cellpadding="0">
+    <tbody><tr>
+      <td>
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="67%" valign="middle">
+              <p align="center">
+                <name>CS 6789: Foundations of Reinforcement Learning</name>
+              </p>
+              
+              <br>Modern Artificial Intelligent (AI) systems often need the ability to make sequential decisions in an unknown, 
+              uncertain, possibly hostile environment, by actively interacting with the environment to collect relevant data. 
+              Reinforcement Learning (RL) is a general framework that can capture the interactive learning setting and 
+              has been used to design intelligent agents that achieve super-human level performances on 
+              challenging tasks such as Go, computer games, and robotics manipulation.  <br>
+              <br>This graduate level course focuses on theoretical and algorithmic foundations of Reinforcement Learning. The four main themes of the course are
+              <strong>(1) fundamentals (MDPs, computation, statistics,
+              generalization) (2) provably efficient exploration (and
+              high dimensional RL) (3) direct policy optimization
+              (e.g. policy gradient methods), (4) further topics
+              (control, offline RL, and imitation learning). </strong> <br>
+
+              <br>After taking this course, students will be able to understand both classic and state-of-art provably correct RL algorithms and their analysis. Students will be able to conduct research on RL related topics. <br>
+            </td>
+          </tr>
+        </tbody></table>
+
+        
+
+    
+
+        
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Staff</heading>
+              </p>
+              <p>
+                <br><strong>Instructors</strong>: <a href="https://wensun.github.io/">Wen Sun</a> (Cornell) and <a href="https://homes.cs.washington.edu/~sham/">Sham Kakade</a> (University of Washington &amp; Microsoft Research) <br>
+                <br><strong>TAs</strong>: Princewill Okoroafor <br>
+                <br><strong> Lecture time: </strong> Tuesday/Thursday 11:25am-12:40 ET  <br>
+                <br><strong>Office hours: </strong> By Appointment<br>
+                <br><strong>Location: </strong> Gates Hall G114<br>
+                
+                <br><strong>Contact:</strong> cornellcs6789@gmail.com. 
+                </p><p> Please communicate to the instructors and TA only through this account. 
+                Emails not sent to this list, with regards to the course,
+                will not be responded to in a timely manner.</p>
+              <br>
+              <p></p>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Zoom Information</heading>
+              </p>
+              <p>Zoom information has been posted on Ed Discussion. 
+                Students enrolled in the Ithaca section are required to show up in person. Students enrolled in the Cornell Tech section can join via zoom. </p>
+                <p>
+                If you are not enrolled/wait listed (or you are not from Cornell), but want to have access,  
+                please email cornellcs6789@gmail.com to ask for permission. We will make a decision based on the capacity of the class 
+                and your research background (please in email briefly describe your research interestes and your background on machine learning theory. Thanks). 
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Prerequisites</heading>
+              </p>
+              <p> 
+                <br>This is an <strong>advanced and theory-heavy course</strong>: there is no programming assignment and students 
+                are required to work on a theory-focused course project.<br>
+                <br>Students need strong grasp on Machine Learning (e.g., CS 4780), Probability and Statistics (e.g., BTRY 3080 or ECON 3130, or MATH 4710), Optimization (e.g., ORIE 3300), and Linear Algebra (e.g., MATH 2940). 
+                For undergraduate students enrollment: permission of instructor with minimum grade A in CS 4780.<br>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Grading Policies</heading>
+              </p>
+              <p> 
+                <br> Assignments 55% (HW0:10%, HW1-HW3: 15% each), Project 40%, Reading 5%, Participation bonus 5%<br>
+                <br> All homework will be mathematical in nature, focussing on the theory of RL and bandits; 
+                there will not be a programming component. 
+                The entire HW must be submitted in one single typed pdf document (not handwritten). 
+                HW0 is MANDATORY to pass to satisfactory level; 
+                it is to check your knowledge of the prerequisites in probability, statistics, and linear algebra. <br>
+	      <br><strong>Homework Rules: </strong>
+	      Homework must be done individually: each student must understand, write, and hand in their own answers. It is
+          acceptable for students to discuss problems with each other;  
+                it is not acceptable for students to share answers and look at another students written answers. 
+                You must also indicate on each homework with whom you collaborated with and what online resources you used.<br>
+                <br><strong>Late days: </strong> Homeworks must be submitted by the posted due date. 
+                  You are allowed up to 6 total LATE DAYs for the homeworks throughout the entire semester. These will be automatically deducted if your assignment is late. 
+                  For example, any day in which an assignment is late by up to 24 hours, 
+                  then one late day will be used. After your late days are used up, 
+                  late penalties will be applied: any assignment turned in late will incur a reduction in score by 33% for each late day, 
+                  so if an assignment is up to 24 hours late, it incurs a penalty of 33%. 
+                  Else if it is up to 48 hours late, it incurs a penalty of 66%. 
+                  And any longer, it will receive no credit. We will track all your late days and any deductions will be applied in computing the final grades. 
+                  If you are unable to turn in HWs on time, aside from permitted days, then do not enroll in the course.<br>
+                
+                <br><strong>Participation/extra effort
+              bonus:</strong>  We encourage participation including
+              asking/answering questions in lectures and ED
+              discussion, and extra effort on reading the book
+              chapters (e.g., proof reading additional chapters and
+              sending back comments/feedback).<br> 
+              </p>
+
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Reading Assignment</heading>
+              </p>
+              <p>
+                Please sign up for reading materials <a href="https://docs.google.com/spreadsheets/d/1Be-azMBh1zFpom_XH-JoE40xDcUlYusOlbcfuFU1LwQ/edit?usp=sharing">here</a>. </p>
+              <p> Reading assignment is done in group (size 2 or 3). Each group will read the assigned chapter in the AJKS book (V3). 
+                You are required to submit a one page report that
+          summarizes the chapter. In addition to this, the requirement
+          is that you also carefully read the chapter, checking for errors, typos, and
+          arguments/explanations that are not clear; please point this
+          out to the instructors either in a separate page in the report
+          or via Ed Discussion. The expectation
+          is that you check <em>all</em> mathematical steps in the
+          chapter; this gives you an opportunity to obtain a
+          mastery of the chapter that you choose.</p>                
+              <p></p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Course Project</heading>
+              </p>
+              <p>
+                Please see the course project <a href="https://wensun.github.io/CS6789projects.html">page</a>. 
+                It is a course requirement that you be in attendance for
+          all student presentations. In addition, we ask everyone to block
+          approximately 2 hours for each of the presentation sessions  
+                (tentatively there will be 3 presentation sessions at the end of the semester) 
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Diversity in STEM</heading>
+              </p>
+              <p> 
+                While many academic disciplines have historically been dominated by one cross section of society, 
+                the study of and participation in STEM disciplines is a joy that the instructors hope that everyone can pursue, 
+                regardless of their socio-economic background, race, gender, etc. 
+                The instructors encourage students to both be mindful of these issues, and, 
+                in good faith, try to take steps to fix them. You are the next generation here.
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+	<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+	  <tbody><tr>
+	    <td width="100%" valign="middle">
+	      <p align="center">
+	      <heading>Course Notes: RL Theory and Algorithms </heading>
+	      </p>
+              <p> 
+	      The course will be largely based of the working draft of
+	  the book "Reinforcement Learning Theory and
+	  Algorithms", available 
+	      <a href="https://rltheorybook.github.io/">here</a>.
+	  We will be updating these notes in <a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">AJKS</a>
+	  throughout the course of the term. If you find typos or errors, please let us
+	  know. We would appreciate it!
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+	
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Honor Code</heading>
+              </p>
+              <p> 
+                <a href="http://theuniversityfaculty.cornell.edu/academic-integrity/"> Cornell University Code of Academic Integrity, </a>
+                <a href="https://www.cs.cornell.edu/undergrad/CSMajor#ai/">CS Department Code of Academic Integrity.</a>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+
+
+
+        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <tbody><tr>
+            <td width="100%" valign="middle">
+              <p align="center">
+                <heading>Schedule (tentative)</heading>
+              </p>
+              
+              <table>
+		<tbody>
+                  <tr height="50" bgcolor="#F8F8FF">
+                    <td></td>
+                    <td></td>
+                    <td> <strong>Lecture</strong></td>
+                    <td>Reading</td>
+                    <td>Slides/HW </td>
+                  </tr>
+		  
+                  <tr height="50">
+                    <td>08/26/21</td>
+                    <td></td>
+                    <td> <strong>Fundamentals</strong>: Markov Decision Processes</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/basics_MDP.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/basics_MDP_annotated.pdf">Annotated slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw0.pdf">HW0</a></td>
+                  </tr>
+
+                  <tr height="50" bgcolor="#F8F8FF">
+                    <td> 08/31/21</td>
+                    <td></td>
+                    <td><strong>Fundamentals</strong>: Policy Iteration and Value Iteration</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/VI_and_PI.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/VI_and_PI_annotated.pdf">Annotated slides</a></td>
+                  </tr>
+
+                  <tr height="50">     
+                    <td> 09/02/21</td>
+                    <td></td>
+                    <td><strong>Fundamentals</strong>: Computational Complexity &amp; The LP-Formulation</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.1</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/comp_limits.pdf">Slides</a>, 
+                    <a href="https://wensun.github.io/CS6789_data_fall_2021/comp_limits_annotated.pdf">Annotated slides</a></td>
+                  </tr>
+
+
+                <tr bgcolor="#F8F8FF" height="50">
+                    <td> 09/07/21</td>
+                    <td></td>
+                <td><strong>Fundamentals</strong>: Statistical Limits
+                    with a Generative Model </td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.2 </a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Sample_Complexity.pdf">Slides</a>,
+                    <a href="https://wensun.github.io/CS6789_data/Sample_Complexity_annotated.pdf">Annotated slides</a>,
+		    </td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 09/09/21</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Generalization in RL</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.5
+		      </a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_1.pdf">Slides_1</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2.pdf">Slides_2</a>, 
+			<a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_1_annotated.pdf">Annotated Slides_1</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_annotated.pdf">Annotated Slides_2</a>
+		    </td>
+                <td></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">  
+                    <td> 09/14/21</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Lower Bounds
+                    (the Linear Q* Assumption) &amp; Bellman
+		    Completeness</td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.3
+		      </a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_continued.pdf">Slides_2_continued</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC.pdf">Slides_Bellman_complete</a>,
+		      <a href="https://wensun.github.io/CS6789_data_fall_2021/Generalization_2_continued_annotated.pdf">Slides_2_continued_annotated</a>,
+          <a href="https://wensun.github.io/CS6789_data_fall_2021/hw1.pdf">HW1</a>
+		    </td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 09/16/21</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Linear Bellman Completion (Continue)</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.3
+            </a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC_continue.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linear_BC_continue_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 09/21/21</td>
+                    <td></td>
+                  <td><strong>Fundamentals</strong>: Fitted Dynamic Programming</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.4</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/fitted_Q_iteration.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/fitted_Q_iteration_annoated.pdf">Annotated Slides</a></td>
+                  </tr>
+                  
+
+                  <tr height="50">
+                    <td> 09/23/21</td>
+                    <td></td>
+                  <td><strong>Exploration</strong>: Multi-armed Bandits / Linear Bandits</td> 
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.6</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/MAB.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/MAB_annoated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 09/28/21</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Linear Bandits</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.6</a></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linUCB.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linUCB_annotated.pdf">Annotated slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 09/30/21</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Efficient Exploration in Tabular MDPs</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.7</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/UCBVI.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/UCBVI_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 10/5/21</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Efficient Exploration in Linear MDPs</td>
+                <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.8</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 10/7/21</td>
+                    <td></td>
+                <td><strong>Exploration</strong>: Linear MDP (continue)</td>
+                    <td>  </td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/linearMDPs_2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 10/12/21</td>
+                    <td></td>
+                <td><strong>No class </strong></td>
+                    <td>  </td>
+                <td></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 10/14/21</td>
+                    <td></td>
+                <td><strong>Exploration</strong>: Learning in Large Scale MDPs (Bellman rank)</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.9</a> </td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_part_1.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_part_1_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 10/19/21</td>
+                    <td></td>
+                    <td><strong>Exploration</strong>: Learning in Large Scale MDPs (Bellman rank Continued)</td>
+                    <td></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Bellman_rank_2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 10/21/21</td>
+                    <td></td>
+                <td><strong>Policy Optimization</strong>: Policy Gradient and Convergence</td>
+                    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.11</a></td>
+                    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Policy_gradient.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/Policy_gradient_annotated.pdf">Annotated Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw2.pdf">HW2</a></td>
+                  </tr>
+
+		  <tr bgcolor="#F8F8FF" height="50">
+		    <td>10/26/21</td>
+		    <td></td>
+		    <td><strong>Policy Optimization</strong>: Global
+		      Convergence  </td>
+               <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT1.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT1_annotated.pdf">Annotated Slides</a></td>
+		    </tr>
+		  
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td>10/28/21</td>
+                    <td></td>
+                    <td><strong>Policy Optimization</strong>: Natural Policy Gradient (NPG) and its Global Convergence</td>
+               <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		      <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT2.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT2_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                <tr height="50">
+                  <td>11/2/21</td>
+                  <td></td>
+                <td><strong>Policy Optimization</strong>: NPG and
+		  Function Approximation </td>
+		  <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.12</a></td>
+		  <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT3.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT3_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+		<tr bgcolor="#F8F8FF" height="50">
+		  <td>11/4/21</td>
+		  <td></td>
+		  <td><strong>Policy Optimization</strong>: Function
+		  Approximation </td>
+		  <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.13</a></td>
+		  <td><a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT4.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/PG_OPT4_annotated.pdf">Annotated Slides</a></td>
+		</tr>
+		
+		<tr height="50">
+		  <td>11/9/21</td>
+		  <td></td>
+		  <td><strong>Control</strong>: Linear Quadratic
+		    Regulators (LQRs) </td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.16</a></td>	
+		    <td><a href="https://wensun.github.io/CS6789_data_fall_2021/LQR.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/LQR_annotated.pdf">Annotated Slides</a> </td>
+		  </tr>
+		  
+		  <!--		  
+		  <tr  bgcolor="#F8F8FF" height="50">
+		    <td> 11/9/21</td>
+		    <td></td>
+		    <td><strong>Control</strong>: SDP formulation, Gauss-Newton/Policy Iteration, and a convex parameterization (System Level Synthesis)</td>
+		    <td></td>
+		    <td></td>
+		  </tr>
+		  -->
+		  
+		  <tr height="50">
+		    <td> 11/11/21</td>
+		    <td></td>
+		    <td><strong>Control</strong>: Convex parameterization for linear systems and online control</td>
+		    <td><a href="https://rltheorybook.github.io/rltheorybook_AJKS.pdf">Ch.16
+                    </a></td><td><a href="https://wensun.github.io/CS6789_data_fall_2021/SLS_linear_system.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/SLS_linear_system_annotated.pdf">Annotated Slides</a></td>
+                  </tr>
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 11/16/21</td>
+                    <td></td>
+                <td><strong>Offline RL</strong>: Recent Advancements in Offline RL</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Offline%20rl_%20a%20min-max%20approach.pdf">Slides</a>, <a href="https://wensun.github.io/CS6789_data_fall_2021/hw3.pdf">HW3</a></td>
+                  </tr>
+                  
+                  <tr height="50">
+                    <td> 11/18/21</td>
+                    <td></td>
+                <td><strong>Imitation Learning</strong>: Behavior Cloning and Distribution Matching</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Imitation_Learning.pdf">Slides</a></td>
+                  </tr>
+
+
+                                    
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 11/23/21</td>
+                    <td></td>
+                <td><strong>Imitation Learning</strong>: Interactive Imitation Learning</td>
+                    <td></td>
+                <td><a href="https://wensun.github.io/CS6789_data_fall_2021/Interactive_IL.pdf">Slides</a></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 11/25/21</td>
+                    <td></td>
+                  <td><strong>No class </strong></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
+
+
+                  <tr bgcolor="#F8F8FF" height="50">
+                    <td> 11/30/21</td>
+                    <td></td>
+                    <td> No class </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
+                  <tr height="50">
+                    <td> 12/2/21</td>
+                    <td></td>
+                <td> No class </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                 
+                
+                  <tr height="50">
+                    <td> 12/7/21</td>
+                    <td></td>
+                <td> Student Project Presentations</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+
+                                  
+                  <tr height="50">
+                    <td> 12/9/21</td>
+                    <td></td>
+                <td> Student Project Presentations</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+          
+               </tbody>
+              </table>
+
+
+
+            </td>
+          </tr>
+        </tbody></table>
+
+
+        
+
+
+     
+
+
+        
+        </td>
+    </tr>
+  </tbody></table>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
