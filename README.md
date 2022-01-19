@@ -1,2 +1,2 @@
-# rl-theory.github.io
-reading group of RL-Theory
+# RL Theory Reading Group (2022 Winter)
+
